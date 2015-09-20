@@ -18,6 +18,16 @@
     <a ng-click="add(-1)" class="button alert">Subtract</a>
     <h4>Current count: {{counter}}</h4>
 </div>
+<div ng-controller="PropController">
+    <h1>{{person}}</h1>
+    and their name
+    <h2>{{person.name}}</h2>
+    <!--Bind a scope as a child scope by placing child controller inside of parent controller-->
+    <div ng-controller="PropChildController">
+        <a ng-click="displayPhone()">Show Phone</a>
+        {{person.phone}}
+    </div>
+</div>
 <script src="dale.js" async></script>
 </body>
 </html>

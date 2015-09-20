@@ -37,3 +37,25 @@ dale.controller('CalcController', function($scope){
     $scope.counter += amount;
   };
 });
+/**
+ * Attaching objects or other types to $scope
+ */
+dale.controller('PropController',function($scope){
+  /**
+   *
+   * @type {{name: string}}
+   */
+  $scope.person = {
+    name: 'Dale Corns',
+    phone: '',
+    greeted: true
+  };
+});
+/**
+ * Becomes a child controller when placed inside the PropConroller's element in the html
+ */
+dale.controller('PropChildController', function($scope){
+  $scope.displayPhone = function(){
+    $scope.person.phone = '(555) 555-5555';
+  }
+});
