@@ -9,7 +9,14 @@
 <body>
 <!--Every thing in this div class is scoped to DaleController because of the ng-contoller directive-->
 <div ng-controller="DaleController">
-<h1>Hello {{clock}} !</h1>
+<h1>Hello {{clock.now}} !</h1>
+</div>
+<!--Using the ng-click directive multi-controller scopes-->
+<div ng-controller="CalcController">
+    <h4>A simple calculator</h4>
+    <button ng-click="add(1)" class="button">Add</button>
+    <a ng-click="add(-1)" class="button alert">Subtract</a>
+    <h4>Current count: {{counter}}</h4>
 </div>
 <script src="dale.js" async></script>
 </body>
