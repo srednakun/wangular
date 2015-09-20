@@ -1,5 +1,5 @@
 ##Some angular samples
-Progressively more interesting as the branch numbers get higher
+Progressively more interesting as the branch numbers get higher. Useful for teaching student angular or learning it yourself.
 ####ang01
 basic data binding using angular and only html
 ####ang02
