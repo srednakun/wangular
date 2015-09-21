@@ -74,3 +74,37 @@ dale.controller('parseController', function($scope, $parse){
     }
   })
 });
+/**
+ * Interpolating emailBody into the previewText property
+ */
+dale.controller('interpolateController', function($scope, $interpolate){
+  $scope.$watch('emailBody', function(body){
+    /**
+     * body is string of user input
+     */
+    if(body){
+      /**
+       * template becomes a function that will take a template as an argument and contains body as the context
+       */
+      $scope.template = $interpolate(body);
+      /**
+       ** When executed template will return body interpolation of any occurrence of the template within it.
+       */
+      $scope.previewText = $scope.template({to: $scope.to});
+    }
+  });
+  /**
+   * Also watch the input field so that when to changes, it will be reflected in the email body without having to type in the body again afterwards for it to update.
+   */
+  $scope.$watch('to', function(recc){
+    /**
+     * if $scope.template has been defined then we can call it, if not, there is nothing to change since anything in the emailBody would have triggered the $scope.template function.
+     */
+    if(recc && $scope.template){
+      /**
+       * refresh preview text with the new data
+       */
+      $scope.previewText = $scope.template({to: recc});
+    }
+  });
+});

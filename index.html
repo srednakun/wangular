@@ -27,11 +27,17 @@
         <a ng-click="displayPhone()">Show Phone</a>
         {{person.phone}}
     </div>
-    <!--Parse expr when it changes value output the parsed result to parsedValue-->
-    <div ng-controller="parseController">
-        <input ng-model="expr" type="text" placeholder="Enter an Expression">
-        <h2>{{parsedValue}}</h2>
-    </div>
+</div>
+<!--Parse expr when it changes value output the parsed result to parsedValue-->
+<div ng-controller="parseController">
+    <input ng-model="expr" type="text" placeholder="Enter an Expression"/>
+    <h2>{{parsedValue}}</h2>
+</div>
+<!--Using a template expression for the ng-model to in the emailBody will put the contents of to in its place when the email body changes-->
+<div ng-controller="interpolateController">
+    <input ng-model="to" type="email" placeholder="Recipient"/>
+    <textarea ng-model="emailBody"></textarea>
+    <pre>{{previewText}}</pre>
 </div>
 <script src="dale.js" async></script>
 </body>
