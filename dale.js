@@ -59,3 +59,18 @@ dale.controller('PropChildController', function($scope){
     $scope.person.phone = '(555) 555-5555';
   }
 });
+/**
+ *  Manually parse an expression (normally done by digest loop)
+ *  Inject the $parse service into the controller
+ */
+dale.controller('parseController', function($scope, $parse){
+  /**
+   * Register a watch on expr to parse its value and bind the result to $scope.parsedValue
+   */
+  $scope.$watch('expr', function(newVal, oldVal, scope){
+    if(newVal !== oldVal){
+      var parsFunc = $parse(newVal);
+      $scope.parsedValue = parsFunc(scope);
+    }
+  })
+});
