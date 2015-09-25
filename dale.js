@@ -108,3 +108,6 @@ dale.controller('interpolateController', function($scope, $interpolate){
     }
   });
 });
+dale.controller('filterController', function($scope){
+
+});
